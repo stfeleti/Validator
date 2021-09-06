@@ -1,0 +1,33 @@
+﻿@page "/ValidatorUI"
+
+<h3>Validator UI</h3>
+
+<br />
+<br />
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="form-group">
+            <label for="creditCard">Credit Card Number</label>
+            <input type="text" class="form-control" id="creditCard" placeholder="Enter credit card number" @bind="@validator.CardNumber" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" @onclick="Validate">Check</button>
+
+        <br /><br />
+
+        <h3>Result:</h3>
+        @if (validator.Result != null)
+        {
+            <p>@validator.CardNumber</p>
+            <p>@validator.Result</p>
+        }
+    </div>
+
+</div>
+
+@code {
+    Validator validator = new Validator();
+}
